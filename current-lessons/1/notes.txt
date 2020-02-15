@@ -1,0 +1,33 @@
+WEBSOCKET:
+
+RQ:
+GET HTTP/1.1
+Host: echo.websocket.org
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: fjadkjabdba
+Sec-WebSocket-Version: 13
+
+RS:
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: fjfnejfbsebfjdhsa
+
+
+
+HTTP:
+
+Schema RQ:
+Request Line - POST http://yandex.ru/ HTTP/1.1
+
+Accept: text/html, text/plain, application/json
+Accept-Language: ru-RU, ru; q=0.9, en-US; q=0.8
+Connection: keep-alive / close
+Host: yandex.ru
+User-Agent: Mozilla/5.0
+Content-Type: application/json
+
+1) Request Line
+2) Headers
+3) Body
