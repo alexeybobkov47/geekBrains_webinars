@@ -1,5 +1,10 @@
 package main
 
+/*
+Как получить OAuth-токен:
+https://yandex.ru/dev/direct/doc/start/token-docpage/
+*/
+
 import (
 	"bytes"
 	"encoding/json"
