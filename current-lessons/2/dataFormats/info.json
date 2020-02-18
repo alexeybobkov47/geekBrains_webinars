@@ -1,0 +1,13 @@
+{
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "address": {
+    "streetAddress": "Leninskie Gory street",
+    "city": "Moscow",
+    "postalCode": 1111
+  },
+  "phoneNumber": [
+      "+7 903 3141592",
+      "8 495 271828"
+  ]
+}
