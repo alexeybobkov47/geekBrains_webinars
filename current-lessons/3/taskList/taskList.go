@@ -26,7 +26,7 @@ var simpleList = ChallengeList{
 	List: []Challenge{
 		{ID: "first", Text: "Первая задача", Complete: false},
 		{ID: "second", Text: "Вторая задача", Complete: false},
-		{ID: "thrid", Text: "Третья задача", Complete: true},
+		{ID: "third", Text: "Третья задача", Complete: true},
 	},
 }
 
