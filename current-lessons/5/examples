@@ -1,0 +1,5 @@
+beego.Router("/api/list",&RestController{},"*:ListFood")
+beego.Router("/api/create",&RestController{},"post:CreateFood")
+beego.Router("/api/update",&RestController{},"put:UpdateFood")
+beego.Router("/api/delete",&RestController{},"delete:DeleteFood")
+
