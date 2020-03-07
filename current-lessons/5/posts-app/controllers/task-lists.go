@@ -26,14 +26,13 @@ func (c *ListController) Get() {
 }
 
 func getAllLists(db *sql.DB) ([]models.Lists, error) {
-	res := make([]models.Lists, 0, 1)
-
 	rows, err := db.Query("select * from task_list_app.lists")
 	if err != nil {
-		return res, err
+		return nil, err
 	}
 	defer rows.Close()
 
+	res := make([]models.Lists, 0, 1)
 	for rows.Next() {
 		list := models.Lists{}
 
@@ -54,7 +53,8 @@ type postRequest struct {
 }
 
 /*
-	curl -vX POST -H "Content-Type: application/json"  -d'{"name":"NewText", "desc":"newdesc"}' http://localhost:8090/
+	curl -vX POST -H "Content-Type: application/json"  -d'{"name":"NewText",
+"desc":"newdesc"}' http://localhost:8090/lists
 */
 
 func (c *ListController) Post() {
@@ -73,24 +73,21 @@ func (c *ListController) Post() {
 	if err := createList(c.Db, list); err != nil {
 		c.Ctx.ResponseWriter.WriteHeader(500)
 		_, _ = c.Ctx.ResponseWriter.Write([]byte(err.Error()))
+		return
 	}
 
 	c.Ctx.ResponseWriter.WriteHeader(200)
-	_, _ = c.Ctx.ResponseWriter.Write([]byte(`SUCCESS`))
+	_, _ = c.Ctx.ResponseWriter.Write([]byte(`SUCCESS\n`))
 }
 
 func createList(db *sql.DB, list models.Lists) error {
-	_, err := db.Exec("insert into task_list_app.lists (id, name, description) values (?,?,?)",
-		list.Id, list.Name, list.Description)
-	if err != nil {
-		return err
-	}
+	_, err := db.Exec("insert into task_list_app.lists (name, description) values (?,?)", list.Name, list.Description)
 
-	return nil
+	return err
 }
 
 /*
-	curl -vX PUT -H "Content-Type: application/json"  -d'{"name":"NewText", "desc":"newdesc_put"}' http://localhost:8090/?id=131
+	curl -vX PUT -H "Content-Type: application/json"  -d'{"name":"NewText","desc":"newdesc_put"}' http://localhost:8090/lists?id=131
 */
 func (c *ListController) Put() {
 	id := c.Ctx.Request.URL.Query().Get("id")
@@ -129,15 +126,12 @@ func updateList(db *sql.DB, id, name, description string) error {
 
 	_, err := db.Exec("UPDATE `task_list_app`.`lists` SET `name`=?, `description`=? WHERE (`id` = ?)",
 		name, description, id)
-	if err != nil {
-		return err
-	}
 
-	return nil
+	return err
 }
 
 /*
-	curl -vX DELETE  http://localhost:8090/?id=131
+	curl -vX DELETE  http://localhost:8090/lists?id=133
 */
 
 func (c *ListController) Delete() {
