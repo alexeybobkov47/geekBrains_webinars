@@ -22,7 +22,11 @@ func init() {
 	// Регистрация модели
 	orm.RegisterModel(new(models.User))
 
-	_ = orm.RegisterDataBase("default", "mysql", dsnBeeGo)
+	err := orm.RegisterDataBase("default", "mysql", dsnBeeGo)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 
 	beeorm := orm.NewOrm()
 
