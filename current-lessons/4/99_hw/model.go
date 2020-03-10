@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-const DSN = "root:1234@tcp(localhost:3306)/task_list_app?charset=utf8"
+const DSN = "root:1234@tcp(localhost:3306)/posts?charset=utf8"
 
 type Post struct {
 	Id      int

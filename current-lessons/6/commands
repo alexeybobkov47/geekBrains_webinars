@@ -1,0 +1,11 @@
+docker run --name some-mongo -d -p 27017:27017 mongo
+
+go get go.mongodb.org/mongo-driver/mongo
+
+show databases;
+use database_name;
+
+show collections;
+db.lists.find();
+    db.lists.find().pretty();
+db.lists.drop();
