@@ -1,2 +1,4 @@
-github.com/yudintsevegor/testmod v0.0.0-20200310190924-37982ccee41f h1:N/ookb4A3H1sVTS+tQRaX49F4DGGXPmlJqu6FTjHz3o=
-github.com/yudintsevegor/testmod v0.0.0-20200310190924-37982ccee41f/go.mod h1:827H8kurLINFjnkXMraKduy9Hc148yrCC3kkb+3vVWM=
+github.com/yudintsevegor/testmod v1.0.1 h1:TDG64gBxGdjeEHPPb2dutA4TqSbDjqnvzDN+cy5Egzw=
+github.com/yudintsevegor/testmod v1.0.1/go.mod h1:kxDStk0LnmMaISk1cD8ZzZZAEIni/cADp3qyMhWCJMM=
+github.com/yudintsevegor/testmod v1.0.2-0.20200314084323-0dea1b144796 h1:YvBq0LTcoONfqLGtS3yHU4cJgYLxK4lhh5W/m0g7jdw=
+github.com/yudintsevegor/testmod v1.0.2-0.20200314084323-0dea1b144796/go.mod h1:kxDStk0LnmMaISk1cD8ZzZZAEIni/cADp3qyMhWCJMM=

@@ -6,6 +6,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+const dbName = "task_list_app"
+
 func (e explorer) createList(list List) error {
 	c := e.db.Database(dbName).Collection("lists")
 	_, err := c.InsertOne(context.Background(), list)
@@ -34,8 +36,8 @@ func (e explorer) getList(listName string, obj interface{}) error {
 	return res.Decode(obj)
 }
 
-func (e explorer) updateList(listname string, newName string, newDesc string) error {
-	filter := bson.D{{Key: "name", Value: listname}}
+func (e explorer) updateList(listName string, newName string, newDesc string) error {
+	filter := bson.D{{Key: "name", Value: listName}}
 
 	update := bson.D{}
 
@@ -54,19 +56,17 @@ func (e explorer) updateList(listname string, newName string, newDesc string) er
 }
 
 func (e explorer) deleteList(listName string) error {
-	c := e.db.Database(dbName).Collection("lists")
-
 	filter := bson.D{{Key: "name", Value: listName}}
 
+	c := e.db.Database(dbName).Collection("lists")
 	_, err := c.DeleteOne(context.Background(), filter)
 	return err
 }
 
 func (e explorer) deleteAll() error {
-	c := e.db.Database(dbName).Collection("lists")
-
 	filter := bson.D{}
 
+	c := e.db.Database(dbName).Collection("lists")
 	_, err := c.DeleteMany(context.Background(), filter)
 
 	return err

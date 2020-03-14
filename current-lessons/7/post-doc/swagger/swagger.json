@@ -1,0 +1,255 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Task List Documentation",
+        "description": "Документация по работе с сервисом",
+        "version": "1.0.0",
+        "contact": {
+            "email": "abc@nsnow.xyz"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/list/": {
+            "get": {
+                "tags": [
+                    "list"
+                ],
+                "description": "Вернет страницу со статистикой по задачам",
+                "operationId": "TasksController.GetTask",
+                "responses": {
+                    "200": {
+                        "description": "{html}"
+                    },
+                    "500": {
+                        "description": "body is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "list"
+                ],
+                "description": "Обновление листа",
+                "operationId": "TasksController.UpdateTAsk",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "listname",
+                        "description": "Текущее название листа",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "description": "Новое название",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "desc",
+                        "description": "Новое описание",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "body is empty"
+                    },
+                    "500": {
+                        "description": "body is empty"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "list"
+                ],
+                "description": "Создвание нового листа",
+                "operationId": "TasksController.CreateTask",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "description": "Имя листа",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "desc",
+                        "description": "Описание листа",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "body is empty"
+                    },
+                    "500": {
+                        "description": "body is empty"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "list"
+                ],
+                "description": "Удаление листа",
+                "operationId": "TasksController.DeleteTask",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "listname",
+                        "description": "Название листа",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "body is empty"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/lists/": {
+            "get": {
+                "tags": [
+                    "lists"
+                ],
+                "description": "Вернет страницу со статистикой по задачам",
+                "operationId": "ListController.GetAllLists",
+                "responses": {
+                    "200": {
+                        "description": "{html}"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "lists"
+                ],
+                "description": "Обновление листа",
+                "operationId": "ListController.UpdateList",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "listname",
+                        "description": "Текущее название листа",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "description": "Новое название",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "desc",
+                        "description": "Новое описание",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "lists"
+                ],
+                "description": "Создвание нового листа",
+                "operationId": "ListController.CreateList",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "description": "Имя листа",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "desc",
+                        "description": "Описание листа",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "lists"
+                ],
+                "description": "Удаление листа",
+                "operationId": "ListController.DeleteList",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "listname",
+                        "description": "Название листа",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "body is empty"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/static/": {
+            "get": {
+                "tags": [
+                    "static"
+                ],
+                "description": "Вернет страницу со статистикой по задачам",
+                "operationId": "StatisticController.GetStatic",
+                "responses": {
+                    "200": {
+                        "description": "{html}"
+                    },
+                    "500": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        }
+    }
+}

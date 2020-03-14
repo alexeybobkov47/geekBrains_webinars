@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	log.Print(testmod.Hi("Egor", "Yudintsev"))
+	log.Print(testmod.Hi("Egor", "", "101"))
 }

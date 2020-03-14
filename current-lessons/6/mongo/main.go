@@ -24,8 +24,6 @@ const (
 	deleteAll
 )
 
-const dbName = "task_list_app"
-
 type explorer struct {
 	db *mongo.Client
 }
@@ -44,12 +42,12 @@ func main() {
 	e := explorer{db: db}
 
 	taskList := List{
-		ID:          777,
-		Name:        "mail.ru",
-		Description: "mail",
+		ID:          111,
+		Name:        "New",
+		Description: "NewD",
 		List: []Task{
 			{
-				Id:       10,
+				Id:       12,
 				Text:     "New Text",
 				Complete: false,
 			},
@@ -83,11 +81,11 @@ func (e explorer) doAction(mode queryMode, taskList List, list, lists interface{
 	case readLists:
 		err = e.getLists(lists)
 	case readList:
-		err = e.getList("NewTest", list)
+		err = e.getList("mail.ru", list)
 	case updateList:
-		err = e.updateList("NewTest", "NewTestName", "NewDescr")
+		err = e.updateList("New", "NewTestName", "NewDescr")
 	case deleteList:
-		err = e.deleteList("GeekBrains")
+		err = e.deleteList("NewTestName")
 	case deleteAll:
 		err = e.deleteAll()
 	default:
