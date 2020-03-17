@@ -1,0 +1,130 @@
+Basic:
+# Комментарии начинаются со знака "#"
+string1 = "value 1" # TOML поддерживает строки,
+
+string2 = """value 2 # многострочные строки,
+value 3"""
+
+literal1 = 'value4' # литералы,
+
+literal2 = '''value5  # многострочные литералы,
+value6'''
+
+int = 1 # целые числа,
+
+float = 3.1415 # дробные числа,
+
+date = 2016-12-12T03:32:00Z # даты в формате ISO 8601,
+
+bool = true # и булевые значения.
+
+=================================
+Lists:
+
+nums = [ 1, 2 ]
+nested = [[ "a", "b"], [1, 2]]
+emails = ["andy@example.com", "ivan@example.com"]
+
+=================================
+Tables:
+
+[table_name]
+firstValue = 1
+secondValue = 2
+
+[my_table]
+firstValue = 1
+
+[my_table.nested_table]
+secondValue = 2
+
+Equal:
+{
+    "my_table" : {
+        "firstValue" : 1,
+        "nested_table" : {
+            "secondValue" : 2
+        }
+    }
+}
+
+
+[my_table.nested1.nested2]
+value = "hello"
+
+Equal:
+{
+    "my_table" : {
+        "nested1" : {
+            "nested2" : {
+                "value" : "hello"
+            }
+        }
+    }
+}
+
+=================================
+List of tables:
+
+[[products]]
+name = "Hammer"
+sku = 738594937
+
+[[products]]
+
+[[products]]
+name = "Nail"
+sku = 284758393
+color = "gray"
+
+Equal:
+{
+  "products": [
+    { "name": "Hammer", "sku": 738594937 },
+    { },
+    { "name": "Nail", "sku": 284758393, "color": "gray" }
+  ]
+}
+
+
+[[fruit]]
+  name = "apple"
+
+  [fruit.physical]
+    color = "red"
+    shape = "round"
+
+  [[fruit.variety]]
+    name = "red delicious"
+
+  [[fruit.variety]]
+    name = "granny smith"
+
+[[fruit]]
+  name = "banana"
+
+  [[fruit.variety]]
+    name = "plantain"
+
+Equal:
+{
+  "fruit": [
+    {
+      "name": "apple",
+      "physical": {
+        "color": "red",
+        "shape": "round"
+      },
+      "variety": [
+        { "name": "red delicious" },
+        { "name": "granny smith" }
+      ]
+    },
+    {
+      "name": "banana",
+      "variety": [
+        { "name": "plantain" }
+      ]
+    }
+  ]
+}

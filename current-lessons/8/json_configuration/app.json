@@ -1,0 +1,5 @@
+{
+  "site_name": "SiteNameFromConfiguration",
+  "db_link": "mongodb://127.0.0.1:27017/",
+  "log_file": "new_app.log"
+}
